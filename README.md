@@ -37,7 +37,7 @@ server.port=8001
 
 ### Maven
 
-The only dependency that is important (for the moment) is:
+The only dependency that is important (for the moment):
 
 ```
 <dependency>
@@ -50,7 +50,7 @@ It add all necessary beans to the spring context and allows us to read propertie
 
 ### Properties
 
-The client is configured to receive properties from the ConfigServer. The configuration is stored in bootstrap.properties
+The client is configured to receive properties from the ConfigServer. The configuration how to connect to the ConfigServer is stored in bootstrap.properties
 
 ```
 spring.profiles.active=test
