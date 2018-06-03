@@ -13,8 +13,7 @@ public class Server {
     private static final Logger LOGGER = LoggerFactory.getLogger(Server.class);
 
     public static void main(String[]args) {
-
-        LOGGER.info("server startup");
+        LOGGER.info(" [+] server startup");
         SpringApplication.run(Server.class, args);
     }
 }

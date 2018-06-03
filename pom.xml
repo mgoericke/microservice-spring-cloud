@@ -6,11 +6,13 @@
 
     <groupId>de.javamark.springcloud</groupId>
     <artifactId>microservice-parent</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <!-- modules -->
     <modules>
         <module>config-server</module>
+        <module>client</module>
     </modules>
 
     <!-- properties -->
