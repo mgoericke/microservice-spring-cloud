@@ -50,7 +50,7 @@ The only dependency that is important (for the moment):
 </dependency>
 ```
 
-It add all necessary beans to the spring context and allows us to read properties from the config server.
+It adds all necessary beans to the spring context and allows us to read properties from the config server.
 
 ### Properties
 
