@@ -4,7 +4,7 @@ A Simple Spring Cloud ConfigServer + Client application
 
 ## ConfigServer
 
-The ConfigServer provides configuration for services. It understand profiles. 
+The ConfigServer provides configuration for services
 
 ### Maven
 
