@@ -40,7 +40,7 @@ public class RequestController {
         ScriptEngine engine = mgr.getEngineByName("JavaScript");
         String result = "" + engine.eval(function);
         LOGGER.info("[+] result {}", result);
-        return result;
+        return function + " = " + result;
     }
 
     private String getPart(String service) {
