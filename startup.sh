@@ -10,7 +10,7 @@ echo "start eureka server instances"
 java -Dspring.application.name=eureka-primary -jar eureka-server/target/*.jar &
 java -Dspring.application.name=eureka-secondary -jar eureka-server/target/*.jar &
 java -Dspring.application.name=eureka-tertiary -jar eureka-server/target/*.jar &
-sleep 30
+sleep 50
 
 echo "start eureka client instances"
 java -Dspring.application.name=eureka-client-operand -jar client/target/*.jar &

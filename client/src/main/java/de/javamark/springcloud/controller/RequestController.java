@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,19 +14,19 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.net.URI;
-import java.util.List;
 
 @Controller
 public class RequestController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RequestController.class);
 
-    private final DiscoveryClient client;
+    private final LoadBalancerClient loadBalancerClient;
 
     @Autowired
-    public RequestController(DiscoveryClient client) {
-        this.client = client;
+    public RequestController(LoadBalancerClient loadBalancerClient) {
+        this.loadBalancerClient = loadBalancerClient;
     }
+
 
     @GetMapping("/operation")
     public @ResponseBody
@@ -45,18 +45,11 @@ public class RequestController {
 
     private String getPart(String service) {
 
-        // get service by name from discoveryClient
-        List<ServiceInstance> list = client.getInstances(service);
-
-        // if at least one service is available ..
-        if (list != null && !list.isEmpty()) {
-            // get the uri of the service
-            URI uri = list.get(0).getUri();
-            if (uri != null) {
-                // and call the service
-                LOGGER.info("[+] request service {} uri {}", service, uri.toString());
-                return new RestTemplate().getForObject(uri, String.class);
-            }
+        ServiceInstance instance = loadBalancerClient.choose(service);
+        if (instance != null && instance.getUri() != null) {
+            URI uri = instance.getUri();
+            LOGGER.info("[+] request load balanced service: {} with uri {}", service, uri.toString());
+            return new RestTemplate().getForObject(uri, String.class);
         }
         return null;
     }
