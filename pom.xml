@@ -12,8 +12,9 @@
     <!-- modules -->
     <modules>
         <module>config-server</module>
-        <module>client</module>
         <module>eureka-server</module>
+        <module>client-request</module>
+        <module>client-response</module>
     </modules>
 
     <!-- properties -->

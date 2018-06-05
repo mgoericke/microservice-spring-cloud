@@ -26,6 +26,13 @@ Service Discovery with Eureka Server, Spring Cloud Config Server + Client applic
 * [Ribbon Docs](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-ribbon.html)
 * [Client Side Load Balancing](https://spring.io/guides/gs/client-side-load-balancing/)
 
+### branch:step-04
+
+Add Spring Cloud Feign support. Declarative REST client to call registered services (call services by name). 
+
+* [Spring Cloud Feign](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html)
+
+
 ## How to start
 
 Simply checkout the repository, build the applications and start all services ...
