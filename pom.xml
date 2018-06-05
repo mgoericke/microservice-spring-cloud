@@ -15,6 +15,7 @@
         <module>eureka-server</module>
         <module>client-request</module>
         <module>client-response</module>
+        <module>turbine-server</module>
     </modules>
 
     <!-- properties -->

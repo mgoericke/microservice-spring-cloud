@@ -1,4 +1,4 @@
-package springcloud.controller;
+package de.javamark.springcloud.controller;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;

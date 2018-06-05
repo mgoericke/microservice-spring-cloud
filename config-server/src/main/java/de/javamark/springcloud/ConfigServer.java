@@ -8,12 +8,12 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 
 @SpringBootApplication
 @EnableConfigServer
-public class Server {
+public class ConfigServer {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(Server.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigServer.class);
 
     public static void main(String[]args) {
         LOGGER.info(" [+] server startup");
-        SpringApplication.run(Server.class, args);
+        SpringApplication.run(ConfigServer.class, args);
     }
 }
