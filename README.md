@@ -2,6 +2,14 @@
 
 branch:step-06
 
+
+# Spring Cloud Bus:
+ 
+Spring Cloud Bus links nodes of a distributed system with a lightweight message broker. This can then be used to *broadcast* state changes (e.g. *configuration changes*) or other management instructions. The only implementation currently is with an AMQP broker as the transport, but the same basic feature set (and some more depending on the transport) is on the roadmap for other transports.
+
+[https://cloud.spring.io/spring-cloud-bus/](https://cloud.spring.io/spring-cloud-bus/)
+
+
 # What do we need here?
 
 * Apache Kafka 
@@ -32,7 +40,7 @@ add the `spring-cloud-starter-bus-kafka` dependency to all modules:
 </dependency>
 ```
 
-and the `spring-cloud-starter-config-monitor` dependency to the config server.
+and the `spring-cloud-starter-config-monitor` dependency to the config server module.
 
 ```
 <dependency>
@@ -40,8 +48,6 @@ and the `spring-cloud-starter-config-monitor` dependency to the config server.
     <artifactId>spring-cloud-config-monitor</artifactId>
 </dependency>
 ```
-
-## 
 
 ## How to start
 
