@@ -14,6 +14,8 @@ Spring Cloud Bus links nodes of a distributed system with a lightweight message 
 
 * Apache Kafka 
 * Spring Cloud Bus dependency
+* Spring Cloud Config Monitoring dependency
+* Annotate Controller with @RefreshScope
 
 ## Install Apache Kafka
 
@@ -49,6 +51,10 @@ and the `spring-cloud-starter-config-monitor` dependency to the config server mo
 </dependency>
 ```
 
+## Annotate Controller
+
+Annotate `OperatorController` in module `client-response` with `@RefreshScope`.
+
 ## How to start
 
 Simply checkout the repository, build the applications and start all services ...
@@ -59,6 +65,31 @@ $ https://github.com/mgoericke/microservice-spring-cloud.git
 
 # build and start applications
 $ ./startup.sh
+```
+
+## What to test :)
+
+
+### Access Operation Endpoing
+```
+# fetch theoperation endpoint - the operators defined in property 'operator.list' will appear
+$ curl localhost:8001/operation
+```
+
+### Change a property
+change property `operator.list` in `./configuration/eureka-client-operator.properties`. for example, remove + and *. save, commit, push file to github.
+
+open a terminal and refresh the configuration - force a reload of the configuration:
+
+### Refresh the property (force a reload)
+```
+curl -X POST http://localhost:8001/bus/refresh 
+```
+
+### and check the operation endpoint again. 
+```
+# fetch theoperation endpoint - only the operators defined in property 'operator.list' will appear 
+$ curl localhost:8001/operation
 ```
 
 ### Access Config Server
@@ -74,11 +105,6 @@ $ curl localhost:8001/eureka-client/root
 $ curl localhost:8010/
 ```
 
-### Access Eureka Client Root 
-```
-# fetch the eureka client 
-$ curl localhost:8001/operation
-```
 
 
 
