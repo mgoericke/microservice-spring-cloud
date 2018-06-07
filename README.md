@@ -23,7 +23,7 @@ $ ./bin/kafka-server-start.sh ./config/server.properties
 
 ##  Spring Cloud Bus
 
-adda the `spring-cloud-starter-bus-kafka` dependency to all modules:
+add the `spring-cloud-starter-bus-kafka` dependency to all modules:
 
 ```
 <dependency>
@@ -32,7 +32,7 @@ adda the `spring-cloud-starter-bus-kafka` dependency to all modules:
 </dependency>
 ```
 
-and the `spring-cloud-starter-config-monitor` dependency was added to the config server.
+and the `spring-cloud-starter-config-monitor` dependency to the config server.
 
 ```
 <dependency>
