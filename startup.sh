@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 mvn clean package
 trap 'kill $(jobs -p)' SIGINT
+
+#././../kafka_2.12-1.1.0/bin/zookeeper-server-start.sh ././../kafka_2.12-1.1.0/config/zookeeper.properties &
+#sleep 10
+#././../kafka_2.12-1.1.0/bin/kafka-server-start.sh ././../kafka_2.12-1.1.0/config/server.properties &
+#sleep 15
+
 java -jar config-server/target/*.jar &
-sleep 5
+sleep 15
 java -Dspring.application.name=eureka-primary -jar eureka-server/target/*.jar &
 java -Dspring.application.name=eureka-secondary -jar eureka-server/target/*.jar &
 java -Dspring.application.name=eureka-tertiary -jar eureka-server/target/*.jar &
