@@ -1,9 +1,6 @@
 # demo: microservice-spring-cloud
 
-branch:step-06
-
-
-# Spring Cloud Bus:
+# step-06 - Spring Cloud Bus:
  
 Spring Cloud Bus links nodes of a distributed system with a lightweight message broker. This can then be used to *broadcast* state changes (e.g. *configuration changes*) or other management instructions. The only implementation currently is with an AMQP broker as the transport, but the same basic feature set (and some more depending on the transport) is on the roadmap for other transports.
 
@@ -70,7 +67,7 @@ $ ./startup.sh
 ## What to test :)
 
 
-### Access Operation Endpoing
+### Access Operation Endpoint
 ```
 # fetch theoperation endpoint - the operators defined in property 'operator.list' will appear
 $ curl localhost:8001/operation
