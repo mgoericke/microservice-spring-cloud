@@ -1,8 +1,11 @@
-# 06 - Spring Cloud Bus
+# 07 - Zuul - API Gateway
 
-Spring Cloud Bus links nodes of a distributed system with a lightweight message broker. This can then be used to *broadcast* state changes (e.g. *configuration changes*) or other management instructions. The only implementation currently is with an AMQP broker as the transport, but the same basic feature set (and some more depending on the transport) is on the roadmap for other transports.
+Routing is an integral part of a microservice architecture. For example, / may be mapped to your web application, /api/users is mapped to the user service and /api/shop is mapped to the shop service. Zuul is a JVM-based router and server-side load balancer from Netflix.
 
-[https://cloud.spring.io/spring-cloud-bus/](https://cloud.spring.io/spring-cloud-bus/)
+* [https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html)
+* [https://github.com/Netflix/zuul/wiki](https://github.com/Netflix/zuul/wiki)
+
+
 
 ## Project ToC
 * [Step-01 - Spring Cloud Config Server](https://github.com/mgoericke/microservice-spring-cloud/tree/step-01)
@@ -10,34 +13,18 @@ Spring Cloud Bus links nodes of a distributed system with a lightweight message 
 * [Step-03 - Spring Cloud Ribbon - Client side loadbalancing](https://github.com/mgoericke/microservice-spring-cloud/tree/step-03)
 * [Step-04 - Spring Cloud Feign - A declarative RESTClient](https://github.com/mgoericke/microservice-spring-cloud/tree/step-04)
 * [Step-05 - Spring Cloud Hystrix & Spring Cloud Turbine - Circuit Breaker and Dashboard](https://github.com/mgoericke/microservice-spring-cloud/tree/step-05)
+* [Step-05 - Spring Cloud Bus - Broadcast configuration Changes](https://github.com/mgoericke/microservice-spring-cloud/tree/step-06)
  
-
-
 
 # What do we need here?
 
-* Apache Kafka 
-* Spring Cloud Bus dependency
-* Spring Cloud Config Monitoring dependency
-* Annotate Controller with @RefreshScope
+* Zuul dependency
+* Spring Cloud Eureka dependency
+* Small code changes :wink:
 
-## Install Apache Kafka
+##  Zuul
 
-Download and extract Apache Kafka: [kafka_2.11-1.1.0.tgz](https://www.apache.org/dyn/closer.cgi?path=/kafka/1.1.0/kafka_2.11-1.1.0.tgz)
-
-Start Zookeeper ...
-```
-$ ./bin/zookeeper-server-start.sh ./config/zookeeper.properties
-```
-
-Start Kafka Server ...
-```
-$ ./bin/kafka-server-start.sh ./config/server.properties
-```
-
-##  Spring Cloud Bus
-
-add the `spring-cloud-starter-bus-kafka` dependency to all modules:
+add the `spring-cloud-starter-` dependency to all modules:
 
 ```
 <dependency>
