@@ -18,4 +18,6 @@ java -Dspring.application.name=eureka-client-operand -jar client-response/target
 java -Dspring.application.name=eureka-client-operator -jar client-response/target/*.jar &
 sleep 30
 java -Dspring.application.name=eureka-client-root -jar client-request/target/*.jar &
+sleep 60
+java -jar zuul-server/target/*.jar &
 read -p "Press enter to continue"
