@@ -1,4 +1,4 @@
-# Create a Spring Cloud Microservice
+# Create a Spring Cloud microservice step by step
 
 ## Project ToC
 * [Step-01 - Spring Cloud Config Server](https://github.com/mgoericke/microservice-spring-cloud/tree/step-01)
